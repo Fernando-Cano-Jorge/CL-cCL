@@ -847,7 +847,7 @@ for A in V:
     for G in V:
         for C in V:
             for E in V:
-                if str(taut(then(then(then(A,G),then(C,E)),then(then(G,C),then(A,E))))) == "invalid":
+                if str(taut(then(wedge(then(A,G),then(C,E)),then(then(G,C),then(A,E))))) == "invalid":
                     print("(" + str(A) + "," + str(G) + "," + str(C) + "," + str(E) + ")")
 
 print("Relativity counterexamples:")
@@ -1628,7 +1628,7 @@ for A in V:
     for G in V:
         for C in V:
             for E in V:
-                if str(taut(then(then(then(A,G),then(C,E)),then(then(G,C),then(A,E))))) == "invalid":
+                if str(taut(then(wedge(then(A,G),then(C,E)),then(then(G,C),then(A,E))))) == "invalid":
                     print("(" + str(A) + "," + str(G) + "," + str(C) + "," + str(E) + ")")
 
 print("Relativity counterexamples:")
