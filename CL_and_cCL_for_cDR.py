@@ -775,7 +775,7 @@ print("Transitivity (Conjunctive Syllogism)")
 for A in V:
     for E in V:
         for C in V:
-            if str(hence(wedge(then(A,E),then(E,C)),then(A,C)))=="invalid":
+            if str(taut(then(wedge(then(A,E),then(E,C)),then(A,C))))=="invalid":
                 print("("+str(A)+","+str(E)+","+str(C)+")")
 
 print("Monotonicity:")
@@ -848,6 +848,15 @@ for A in V:
         for C in V:
             for E in V:
                 if str(taut(then(wedge(then(A,G),then(C,E)),then(then(G,C),then(A,E))))) == "invalid":
+                    print("(" + str(A) + "," + str(G) + "," + str(C) + "," + str(E) + ")")
+
+print("Affixing 2:")
+
+for A in V:
+    for G in V:
+        for C in V:
+            for E in V:
+                if str(taut(then(then(A,G),then(then(C,E),then(then(G,C),then(A,E)))))) == "invalid":
                     print("(" + str(A) + "," + str(G) + "," + str(C) + "," + str(E) + ")")
 
 print("Relativity counterexamples:")
@@ -1010,7 +1019,7 @@ for X in V:
             if X == 1 and Y == 5:
                 return 5
             if X == 2 and Y == 0:
-                return 3
+                return 0
             if X == 2 and Y == 1:
                 return 2
             if X == 2 and Y == 2:
@@ -1022,7 +1031,7 @@ for X in V:
             if X == 2 and Y == 5:
                 return 5
             if X == 3 and Y == 0:
-                return 3
+                return 0
             if X == 3 and Y == 1:
                 return 3
             if X == 3 and Y == 2:
@@ -1034,7 +1043,7 @@ for X in V:
             if X == 3 and Y == 5:
                 return 5
             if X == 4 and Y == 0:
-                return 3
+                return 0
             if X == 4 and Y == 1:
                 return 1
             if X == 4 and Y == 2:
@@ -1514,28 +1523,28 @@ for A in V:
         if str(taut(then(A,vee(C,neg(C))))) == "invalid":
             print("(" + str(A) + "," + str(C) + ")")
 
-print("Antilogism")
+print("Rule Antilogism")
 for A in V:
     for E in V:
         for C in V:
             if str(hence(then(wedge(A,E),C),then(wedge(A,neg(C)),neg(E))))=="invalid":
                 print("("+str(A)+","+str(E)+","+str(C)+")")
 
-print("False Antecedent:")
+print("Rule False Antecedent:")
 
 for A in V:
     for C in V:
         if str(hence(neg(A),then(A,C))) == "invalid":
             print("(" + str(A) + "," + str(C) + ")")
 
-print("Counterexample:")
+print("Rule Counterexample:")
 
 for A in V:
     for C in V:
         if str(hence(neg(then(A,C)),wedge(A,neg(C)))) == "invalid":
             print("(" + str(A) + "," + str(C) + ")")
 
-print("True Consequent:")
+print("Rule True Consequent:")
 
 for A in V:
     for C in V:
@@ -1556,7 +1565,7 @@ print("Transitivity (Conjunctive Syllogism)")
 for A in V:
     for E in V:
         for C in V:
-            if str(hence(wedge(then(A,E),then(E,C)),then(A,C)))=="invalid":
+            if str(taut(then(wedge(then(A,E),then(E,C)),then(A,C))))=="invalid":
                 print("("+str(A)+","+str(E)+","+str(C)+")")
 
 print("Monotonicity:")
@@ -1629,6 +1638,15 @@ for A in V:
         for C in V:
             for E in V:
                 if str(taut(then(wedge(then(A,G),then(C,E)),then(then(G,C),then(A,E))))) == "invalid":
+                    print("(" + str(A) + "," + str(G) + "," + str(C) + "," + str(E) + ")")
+
+print("Affixing 2:")
+
+for A in V:
+    for G in V:
+        for C in V:
+            for E in V:
+                if str(taut(then(then(A,G),then(then(C,E),then(then(G,C),then(A,E)))))) == "invalid":
                     print("(" + str(A) + "," + str(G) + "," + str(C) + "," + str(E) + ")")
 
 print("Relativity counterexamples:")
